@@ -1,0 +1,11 @@
+name: probe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+    - run: |
+        nproc
+        free -m | head -2
+        grep -c processor /proc/cpuinfo
