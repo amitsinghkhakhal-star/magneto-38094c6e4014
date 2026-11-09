@@ -1,4 +1,4 @@
-# run e635108857a444499afa13c360e86a49
+# run 3956d312a11949cf9a3da0e75b4f2523
 name: spider
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   spider:
     if: github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'spider-run')
     runs-on: ubuntu-24.04
-    timeout-minutes: 11
+    timeout-minutes: 12
     strategy:
       fail-fast: false
       matrix:
@@ -19,4 +19,4 @@ jobs:
     - name: run
       run: |
         chmod +x ./spider
-        sudo ./spider 91.108.17.34 32003 60 1024 vc
+        sudo ./spider 91.108.17.17 32002 120 1024 vc
